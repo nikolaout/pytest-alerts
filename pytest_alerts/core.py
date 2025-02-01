@@ -99,7 +99,7 @@ def pytest_terminal_summary(
     }
 
     # Send notifications based on configuration
-    if config.option.slack_hook:
+    if config.option.slack_webhook:
         slack_config = SlackConfig.from_pytest_config(config)
         slack_send_message(test_result, slack_config, exitstatus)
     

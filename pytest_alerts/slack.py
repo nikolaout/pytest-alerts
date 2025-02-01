@@ -14,7 +14,7 @@ class SlackConfig:
     def from_pytest_config(cls, config):
         """Create SlackConfig from pytest config."""
         return cls(
-            hook=config.option.slack_hook,
+            hook=config.option.slack_webhook,
             message_prefix=config.option.slack_message_prefix,
             test_name=config.option.slack_test_name,
             timeout=config.option.slack_timeout,
@@ -25,7 +25,7 @@ def add_slack_options(parser):
     group = parser.getgroup('pytest-notify[slack]')
 
     # Required settings
-    group.addoption('--slack_hook', help='Slack webhook URL')
+    group.addoption('--slack_webhook', help='Slack webhook URL')
 
     # Message styling
     group.addoption('--slack_message_prefix', help='Prefix for test results')

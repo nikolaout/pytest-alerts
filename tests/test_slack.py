@@ -10,7 +10,7 @@ class MockOption:
         self.show_details = True
         self.hide_errors = False
         # Slack-specific options
-        self.slack_hook = "https://hooks.slack.com/services/TEST/TEST/TEST"
+        self.slack_webhook = "https://hooks.slack.com/services/TEST/TEST/TEST"
         self.slack_message_prefix = "Test Prefix"
         self.slack_test_name = "Test Suite"
         self.slack_timeout = 10

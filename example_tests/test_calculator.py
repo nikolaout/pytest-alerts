@@ -22,8 +22,8 @@ def test_add_positive():
     assert add(2, 3) == 5
 
 def test_subtract_negative():
-    """This test will fail"""
-    assert subtract(5, 3) == 1  # Wrong expectation
+    """This test will pass"""
+    assert subtract(5, 3) == 2  # Corrected expectation
 
 def test_multiply_zero():
     """This test will pass"""
@@ -35,6 +35,6 @@ def test_complex_calculation():
     pass
 
 def test_divide_by_zero():
-    """This test will fail with error"""
-    with pytest.raises(RuntimeError):  # Wrong exception type
+    """This test will pass"""
+    with pytest.raises(ValueError):  # Correct exception type
         divide(10, 0)
