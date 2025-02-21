@@ -25,18 +25,18 @@ class TelegramConfig:
         )
 
 def add_telegram_options(parser):
-    group = parser.getgroup('pytest-notify[telegram]')
+    group = parser.getgroup('pytest-alerts-telegram')
 
     # Required settings
-    group.addoption('--telegram_bot_token', help='Telegram bot token')
-    group.addoption('--telegram_chat_id', help='Telegram chat ID to send messages to')
+    group.addoption('--alerts-telegram-bot-token', help='Telegram bot token', dest='telegram_bot_token')
+    group.addoption('--alerts-telegram-chat-id', help='Telegram chat ID', dest='telegram_chat_id')
 
     # Message styling
-    group.addoption('--telegram_message_prefix', help='Prefix for test results')
-    group.addoption('--telegram_test_name', help='Test suite name')
+    group.addoption('--alerts-telegram-message-prefix', help='Prefix for test results', dest='telegram_message_prefix')
+    group.addoption('--alerts-telegram-test-name', help='Test suite name', dest='telegram_test_name')
 
     # Behavior settings
-    group.addoption('--telegram_timeout', type=int, default=10, help='Telegram API request timeout')
+    group.addoption('--alerts-telegram-timeout', type=int, default=10, help='Request timeout', dest='telegram_timeout')
 
 def format_message(test_result, config: TelegramConfig, exitstatus: int) -> str:
     """Format the test results message for Telegram."""

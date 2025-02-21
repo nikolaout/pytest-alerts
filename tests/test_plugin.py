@@ -20,20 +20,20 @@ def test_test_result_initialization():
 @pytest.fixture
 def mock_config():
     config = MagicMock()
-    # Slack options
-    config.option.slack_hook = "https://hooks.slack.com/services/xxx/yyy/zzz"
-    config.option.slack_message_prefix = "Test Run"
-    config.option.slack_test_name = "Test Suite"
-    config.option.slack_timeout = 10
-    # Telegram options
-    config.option.telegram_bot_token = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
-    config.option.telegram_chat_id = "12345678"
-    config.option.telegram_message_prefix = "Test Run"
-    config.option.telegram_test_name = "Test Suite"
-    config.option.telegram_timeout = 10
     # Shared options
     config.option.show_details = True
     config.option.hide_errors = False
+    # Slack options
+    config.option.slack_webhook = "https://hooks.slack.com/services/xxx/yyy/zzz"
+    config.option.slack_message_prefix = "Test Run"
+    config.option.slack_suite_name = "Test Suite"
+    config.option.slack_timeout = 10
+    # Telegram options
+    config.option.telegram_bot_token = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+    config.option.telegram_chat_id = "-1001234567890"
+    config.option.telegram_message_prefix = "Test Run"
+    config.option.telegram_test_name = "Test Suite"
+    config.option.telegram_timeout = 10
     return config
 
 @pytest.fixture

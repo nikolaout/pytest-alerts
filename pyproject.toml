@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pytest-alerts"
-version = "1.6.0"
+version = "1.6.1"
 description = "A pytest plugin for sending test results to Slack and Telegram"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -51,7 +51,7 @@ dev = [
 packages = ["pytest_alerts"]
 
 [project.entry-points.pytest11]
-alerts = "pytest_alerts.core"
+pytest-alerts = "pytest_alerts.core"
 
 [tool.hatch.build]
 include = [

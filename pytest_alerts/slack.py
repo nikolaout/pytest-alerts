@@ -16,23 +16,23 @@ class SlackConfig:
         return cls(
             hook=config.option.slack_webhook,
             message_prefix=config.option.slack_message_prefix,
-            test_name=config.option.slack_test_name,
+            test_name=config.option.slack_suite_name,
             timeout=config.option.slack_timeout,
             config=config
         )
 
 def add_slack_options(parser):
-    group = parser.getgroup('pytest-notify[slack]')
+    group = parser.getgroup('pytest-alerts-slack')
 
     # Required settings
-    group.addoption('--slack_webhook', help='Slack webhook URL')
+    group.addoption('--alerts-slack-webhook', help='Slack webhook URL', dest='slack_webhook')
 
     # Message styling
-    group.addoption('--slack_message_prefix', help='Prefix for test results')
-    group.addoption('--slack_test_name', help='Test suite name')
+    group.addoption('--alerts-slack-message-prefix', help='Prefix for test results', dest='slack_message_prefix')
+    group.addoption('--alerts-slack-suite-name', help='Test suite name', dest='slack_suite_name')
 
     # Behavior settings
-    group.addoption('--slack_timeout', type=int, default=10, help='Request timeout')
+    group.addoption('--alerts-slack-timeout', type=int, default=10, help='Request timeout', dest='slack_timeout')
 
 def format_message(test_result, config: SlackConfig, exitstatus: int) -> dict:
     """Format the Slack message with all styling"""

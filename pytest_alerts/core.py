@@ -32,16 +32,18 @@ class TestResult:
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Add pytest-notify plugin options to the pytest command line."""
     # Add shared options first
-    group = parser.getgroup('pytest-notify[shared]')
+    group = parser.getgroup('pytest-alerts-shared')
     group.addoption(
-        '--show_details',
+        '--alerts-show-details',
         action='store_true',
-        help='Show error details in notifications'
+        help='Show error details in notifications',
+        dest='show_details'
     )
     group.addoption(
-        '--hide_errors',
+        '--alerts-hide-errors',
         action='store_true',
-        help='Hide error details from notifications'
+        help='Hide error details from notifications',
+        dest='hide_errors'
     )
 
     # Add platform-specific options

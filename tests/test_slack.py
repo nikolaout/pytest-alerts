@@ -12,7 +12,7 @@ class MockOption:
         # Slack-specific options
         self.slack_webhook = "https://hooks.slack.com/services/TEST/TEST/TEST"
         self.slack_message_prefix = "Test Prefix"
-        self.slack_test_name = "Test Suite"
+        self.slack_suite_name = "Test Suite"
         self.slack_timeout = 10
 
 class MockConfig:
@@ -24,7 +24,8 @@ def slack_config():
     config = SlackConfig(
         hook="https://hooks.slack.com/services/TEST/TEST/TEST",
         message_prefix="Test Prefix",
-        test_name="Test Suite"
+        test_name="Test Suite",
+        timeout=10
     )
     config.config = MockConfig()
     return config
